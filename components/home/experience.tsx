@@ -23,20 +23,20 @@ export function Experience() {
             >
               Trajetória
             </h2>
-            <div className="relative mt-8">
-              <span aria-hidden className="absolute bottom-3 left-[6px] top-2 w-px bg-signal/35" />
+            <div className="relative mt-6">
+              <span aria-hidden className="absolute bottom-2 left-[6px] top-2 w-px bg-signal/35" />
               {experience.map((item, index) => {
                 const body = (
-                  <article className="relative py-4 pl-8">
+                  <article className="relative py-2 pl-8">
                     <span
                       aria-hidden
-                      className="absolute left-0 top-6 size-3.5 rounded-full border-2 border-signal bg-bone"
+                      className="absolute left-0 top-3.5 size-3.5 rounded-full border-2 border-signal bg-bone"
                     />
                     <p className="text-[0.7rem] uppercase tracking-[0.16em] text-signal">{item.period}</p>
-                    <h3 className="mt-1 font-serif text-2xl leading-tight tracking-[-0.02em] text-ink">
+                    <h3 className="mt-0.5 font-serif text-xl leading-tight tracking-[-0.02em] text-ink">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft md:text-base">{item.text}</p>
+                    <p className="mt-1 text-sm leading-snug text-ink-soft">{item.text}</p>
                   </article>
                 );
 

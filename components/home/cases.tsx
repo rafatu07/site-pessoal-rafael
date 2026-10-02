@@ -3,49 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { featuredCases, mentions, type WorkCase } from "@/content/cases";
+import { editorialCases, homeMentions, visualCases, type WorkCase } from "@/content/cases";
 import { Container } from "@/components/container";
 import { usePrefersReducedMotion } from "@/components/system-field";
 
-const spans = [
-  "md:col-span-2 lg:col-span-7",
-  "lg:col-span-5",
-  "lg:col-span-6",
-  "lg:col-span-6",
-  "md:col-span-2 lg:col-span-12",
-];
-
-function CaseCard({
-  item,
-  featured,
-  reduce,
-}: {
-  item: WorkCase;
-  featured?: boolean;
-  reduce: boolean;
-}) {
-  if (!item.image) {
-    return (
-      <article className="flex h-full flex-col justify-between gap-4 border border-white/12 p-5 md:flex-row md:items-center">
-        <div>
-          <h3 className="font-serif text-3xl leading-none tracking-[-0.03em]">
-            <Link href={`/trabalhos/${item.slug}`} className="transition-colors hover:text-accent-bright">
-              {item.title}
-            </Link>
-          </h3>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-bone-ink">{item.problem}</p>
-        </div>
-        <Link
-          href={`/trabalhos/${item.slug}`}
-          className="link-draw inline-flex min-h-11 shrink-0 items-center gap-2 text-sm text-bone hover:text-accent-bright"
-        >
-          Ver case
-          <span aria-hidden>→</span>
-        </Link>
-      </article>
-    );
-  }
-
+function VisualCard({ item, reduce }: { item: WorkCase; reduce: boolean }) {
   return (
     <article className="flex h-full flex-col border border-white/12">
       <motion.div
@@ -53,29 +15,30 @@ function CaseCard({
         whileHover={reduce ? undefined : { y: -6 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Image
-          src={item.image}
-          alt={item.imageAlt ?? ""}
-          fill
-          sizes={featured ? "(min-width: 1024px) 46vw, 100vw" : "(min-width: 1024px) 34vw, 100vw"}
-          className="object-cover object-top"
-        />
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.imageAlt ?? ""}
+            fill
+            sizes="(min-width: 1024px) 30vw, 100vw"
+            className="object-cover object-top"
+          />
+        ) : null}
       </motion.div>
-      <div className={featured ? "p-4 lg:p-5" : "p-4"}>
-        <h3
-          className={`font-serif leading-none tracking-[-0.03em] ${featured ? "text-3xl lg:text-4xl" : "text-2xl"}`}
-        >
+      <div className="p-3">
+        {item.category ? (
+          <p className="text-[0.7rem] uppercase tracking-[0.18em] text-accent-bright">{item.category}</p>
+        ) : null}
+        <h3 className="mt-2 font-serif text-2xl leading-none tracking-[-0.03em]">
           <Link href={`/trabalhos/${item.slug}`} className="transition-colors hover:text-accent-bright">
             {item.title}
           </Link>
         </h3>
-        <p className={`mt-3 leading-relaxed text-bone ${featured ? "text-sm lg:text-base" : "text-sm"}`}>
-          {item.problem}
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-bone-ink">{item.lead}</p>
+        <p className="mt-2 text-sm leading-snug text-bone">{item.problem}</p>
+        <p className="mt-1 text-sm leading-snug text-bone-ink">{item.lead}</p>
         <Link
           href={`/trabalhos/${item.slug}`}
-          className="link-draw mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-bone hover:text-accent-bright"
+          className="link-draw mt-2 inline-flex min-h-11 items-center gap-2 text-sm text-bone hover:text-accent-bright"
         >
           Ver case
           <span aria-hidden>→</span>
@@ -102,33 +65,47 @@ export function Cases() {
           Projetos
         </h2>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-          {featuredCases.map((item, index) => (
-            <div key={item.slug} className={spans[index]}>
-              <CaseCard item={item} featured={index === 0} reduce={reduce} />
-            </div>
+        <div className="mt-8 grid items-start gap-4 lg:grid-cols-3">
+          {visualCases.map((item) => (
+            <VisualCard key={item.slug} item={item} reduce={reduce} />
           ))}
         </div>
 
-        <div className="mt-10 border-t border-white/12 pt-8">
-          <h3 className="font-serif text-2xl tracking-[-0.02em]">Outros sistemas</h3>
-          <ul className="mt-5 grid gap-x-8 md:grid-cols-2 lg:grid-cols-3">
-            {mentions.map((item) => (
-              <li key={item.href} className="border-t border-white/12 py-3">
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-bone underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent-bright hover:decoration-accent-bright"
-                >
-                  {item.title}
-                  <span className="sr-only"> (abre em nova aba)</span>
-                </a>
-                <p className="mt-1 text-sm leading-relaxed text-bone-ink">{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="mt-6 grid gap-x-8 sm:grid-cols-2">
+          {editorialCases.map((item) => (
+            <li key={item.slug} className="border-t border-white/12 py-2.5">
+              <Link
+                href={`/trabalhos/${item.slug}`}
+                className="text-sm font-medium text-bone underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent-bright hover:decoration-accent-bright"
+              >
+                {item.title}
+              </Link>
+              <p className="mt-1 text-sm leading-snug text-bone-ink">{item.problem}</p>
+            </li>
+          ))}
+          {homeMentions.map((item) => (
+            <li key={item.href} className="border-t border-white/12 py-2.5">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-bone underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent-bright hover:decoration-accent-bright"
+              >
+                {item.title}
+                <span className="sr-only"> (abre em nova aba)</span>
+              </a>
+              <p className="mt-1 text-sm leading-snug text-bone-ink">{item.description}</p>
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          href="/projetos"
+          className="link-draw mt-6 inline-flex min-h-11 items-center gap-2 text-bone hover:text-accent-bright"
+        >
+          Explorar projetos
+          <span aria-hidden>→</span>
+        </Link>
       </Container>
     </section>
   );

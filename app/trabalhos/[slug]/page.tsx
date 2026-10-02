@@ -61,7 +61,7 @@ export default async function CasePage({ params }: CasePageProps) {
       <article>
         <Container className="pb-20 pt-10 md:pb-28 md:pt-16">
           <Link
-            href="/#projetos"
+            href="/projetos"
             className="inline-flex min-h-11 items-center text-sm text-mute transition-colors hover:text-accent"
           >
             ← Projetos

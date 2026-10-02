@@ -55,24 +55,29 @@ export const areas = [
 
 export const experience = [
   {
-    period: "2014 — 2025",
-    title: "Processos administrativos",
-    text: "Na Prefeitura de Taubaté, o trabalho cotidiano envolvia ordens de pagamento, contratos, retenções fiscais, despesas de concessionárias, adiantamentos e a conferência de processos de liquidação e pagamento. Era o lugar em que uma informação errada ou um encaminhamento pouco claro travava o fluxo. A leitura de processo nasceu daí.",
+    period: "Novembro de 2012",
+    title: "Entrada na Prefeitura",
+    text: "Entrada na Prefeitura de Taubaté, iniciando a trajetória na administração pública.",
+  },
+  {
+    period: "A partir de 2013",
+    title: "Finanças e contabilidade",
+    text: "Finanças e contabilidade: pagamentos, contratos, retenções, concessionárias, adiantamentos e conferência.",
   },
   {
     period: "2023 — 2025",
     title: "Sistemas e desenvolvimento",
-    text: "A graduação em Desenvolvimento Back-End correu em paralelo a essa rotina. Entre abril e julho de 2025 houve um intervalo já encerrado na VisionTaubaté, como desenvolvedor full stack júnior, em manutenção de sistemas, APIs e alinhamento com a equipe. O código passou a ser uma forma de responder ao que eu já via do lado da operação.",
+    text: "Graduação em Desenvolvimento Back-End em paralelo e intervalo de abril a julho de 2025 na VisionTaubaté, como desenvolvedor full stack júnior.",
   },
   {
     period: "Julho de 2025 — 12 de agosto de 2026",
     title: "Sistemas institucionais",
-    text: "Na Prefeitura de Taubaté, o trabalho foi compreender necessidades, entender processos e organizar informações para desenvolver sistemas que apoiassem rotinas administrativas.",
+    text: "Compreender necessidades, processos e informações e estruturar regras para desenvolver sistemas.",
   },
   {
     period: "Desde 13 de agosto de 2026",
-    title: "Nova etapa profissional",
-    text: "Esta etapa acontece num ambiente ligado à Secretaria da Fazenda, perto de administração, informação, finanças, planejamento, dados e gestão pública. O repertório se aproxima desses temas, sem uma função de gestão ou de direção.",
+    title: "Nova etapa na Fazenda",
+    text: "Continuidade na Secretaria da Fazenda, perto de administração, finanças, informação, planejamento, dados e gestão pública.",
   },
 ] as const;
 

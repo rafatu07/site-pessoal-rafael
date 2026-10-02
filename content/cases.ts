@@ -8,6 +8,7 @@ export type WorkCase = {
   solution: string;
   outcome: string;
   technologies: string[];
+  category?: string;
   href?: string;
   linkLabel?: string;
   image?: string;
@@ -20,18 +21,15 @@ export type Mention = {
   href: string;
 };
 
-export const featuredSlugs = [
-  "eproc",
-  "gestao-de-eventos",
-  "ta-na-mao-menu",
-  "monaco-automoveis",
-  "meu-prato-scan",
-] as const;
+export const visualSlugs = ["ta-na-mao-menu", "monaco-automoveis", "eproc"] as const;
+
+export const editorialSlugs = ["gestao-de-eventos", "meu-prato-scan"] as const;
 
 export const cases: WorkCase[] = [
   {
     slug: "eproc",
     title: "eProc",
+    category: "Processos",
     problem:
       "O andamento dos processos administrativos se perdia entre setores, sem um histórico confiável.",
     lead: "Um sistema para que cada setor enxergue em que fase está um processo e registre o que aconteceu.",
@@ -51,6 +49,7 @@ export const cases: WorkCase[] = [
   {
     slug: "gestao-de-eventos",
     title: "Gestão de Eventos",
+    category: "Eventos",
     problem:
       "Inscrição, presença e certificado de eventos institucionais não cabiam no mesmo fluxo.",
     lead: "Uma plataforma para cadastrar o evento, receber inscrições, registrar a presença e emitir o certificado.",
@@ -89,6 +88,7 @@ export const cases: WorkCase[] = [
   {
     slug: "ta-na-mao-menu",
     title: "Tá na Mão Menu",
+    category: "Cardápio digital",
     problem:
       "Cardápios impressos encareciam qualquer mudança de preço e desatualizavam rápido.",
     lead: "Um cardápio digital que o estabelecimento atualiza, com um modelo de uso recorrente.",
@@ -108,6 +108,7 @@ export const cases: WorkCase[] = [
   {
     slug: "monaco-automoveis",
     title: "Mônaco Automóveis",
+    category: "Revenda",
     problem: "A oferta de veículos e o contato com interessados estavam dispersos.",
     lead: "Um site para reunir o portfólio da revenda e abrir um caminho direto de conversa.",
     context:
@@ -158,10 +159,15 @@ export const cases: WorkCase[] = [
   },
 ];
 
-export const featuredCases = featuredSlugs.flatMap((slug) => {
-  const item = cases.find((entry) => entry.slug === slug);
-  return item ? [item] : [];
-});
+function casesBySlugs(slugs: readonly string[]) {
+  return slugs.flatMap((slug) => {
+    const item = cases.find((entry) => entry.slug === slug);
+    return item ? [item] : [];
+  });
+}
+
+export const visualCases = casesBySlugs(visualSlugs);
+export const editorialCases = casesBySlugs(editorialSlugs);
 
 export const mentions: Mention[] = [
   {
@@ -221,6 +227,55 @@ export const mentions: Mention[] = [
       "Um observatório para ver os bairros e registrar o que a população procura em cada evento.",
     href: "https://bairrosvivos.taubate.sp.gov.br/",
   },
+];
+
+export const homeMentionTitles = [
+  "Atribuição de Aulas",
+  "Educa Participa",
+  "Lista Telefônica",
+  "PSE Taubaté",
+] as const;
+
+export const homeMentions = homeMentionTitles.flatMap((title) => {
+  const item = mentions.find((entry) => entry.title === title);
+  return item ? [item] : [];
+});
+
+export const PORTFOLIO_PAGE_SIZE = 8;
+
+export type PortfolioEntry = {
+  key: string;
+  title: string;
+  description: string;
+  href: string;
+  external: boolean;
+};
+
+const caseHrefs = new Set(cases.flatMap((item) => (item.href ? [item.href] : [])));
+const selectedSlugs = new Set<string>([...visualSlugs, ...editorialSlugs]);
+
+function caseEntry(item: WorkCase): PortfolioEntry {
+  return {
+    key: item.slug,
+    title: item.title,
+    description: item.problem,
+    href: `/trabalhos/${item.slug}`,
+    external: false,
+  };
+}
+
+export const portfolio: PortfolioEntry[] = [
+  ...casesBySlugs([...visualSlugs, ...editorialSlugs]).map(caseEntry),
+  ...cases.filter((item) => !selectedSlugs.has(item.slug)).map(caseEntry),
+  ...mentions
+    .filter((item) => !caseHrefs.has(item.href))
+    .map((item) => ({
+      key: item.href,
+      title: item.title,
+      description: item.description,
+      href: item.href,
+      external: true,
+    })),
 ];
 
 export function getCase(slug: string) {
