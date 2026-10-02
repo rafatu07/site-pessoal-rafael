@@ -22,14 +22,6 @@ export const about = {
     "A formação em desenvolvimento veio em paralelo a essa rotina. O software deixou de ser um assunto distante e passou a ser o meio de organizar aquilo que eu já via acontecer no papel, na planilha e no encaminhamento entre setores.",
     "Hoje o trabalho está nessa interseção. Sistemas, dados e tecnologia continuam no centro. O desenvolvimento de software segue como competência, aplicado a soluções que precisam conversar com quem opera, analisa e decide.",
   ],
-  path: [
-    "Entender o problema",
-    "Compreender o processo",
-    "Organizar a informação",
-    "Estruturar a solução",
-    "Utilizar tecnologia",
-    "Gerar melhoria",
-  ],
 } as const;
 
 export const areas = [
@@ -72,7 +64,7 @@ export const experience = [
   {
     period: "2023 — 2025",
     title: "Sistemas e desenvolvimento",
-    text: "A graduação em Desenvolvimento Back-End correu em paralelo a essa rotina. Entre abril e julho de 2025, atuei como desenvolvedor full stack júnior na VisionTaubaté, em manutenção de sistemas, APIs e no alinhamento com a equipe. O código passou a ser uma forma de responder ao que eu já via do lado da operação.",
+    text: "A graduação em Desenvolvimento Back-End correu em paralelo a essa rotina. Entre abril e julho de 2025 houve um intervalo já encerrado na VisionTaubaté, como desenvolvedor full stack júnior, em manutenção de sistemas, APIs e alinhamento com a equipe. O código passou a ser uma forma de responder ao que eu já via do lado da operação.",
   },
   {
     period: "Desde julho de 2025",
@@ -83,6 +75,7 @@ export const experience = [
 
 export const thinking = {
   quote: "Tecnologia não começa no código.",
+  flow: ["Problema", "Processo", "Informação", "Análise", "Sistema", "Melhoria"],
   paragraphs: [
     "Antes de desenvolver uma solução, é preciso compreender o problema.",
     "Antes do problema, existe um processo. Antes do processo, existem pessoas, regras, informações e decisões.",

@@ -13,12 +13,12 @@ export default function Home() {
     <main id="conteudo">
       <Hero />
       <About />
+      <Thinking />
       <Areas />
       <Cases />
       <Experience />
-      <Thinking />
-      <Education />
       <Technologies />
+      <Education />
       <Contact />
     </main>
   );
