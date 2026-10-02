@@ -57,7 +57,7 @@ export const experience = [
   {
     period: "2014 — 2025",
     title: "Processos administrativos",
-    text: "Na Prefeitura de Taubaté, como supervisor de divisão, o trabalho cotidiano envolvia ordens de pagamento, contratos, retenções fiscais, despesas de concessionárias, adiantamentos e a conferência de processos de liquidação e pagamento. Era o lugar em que uma informação errada ou um encaminhamento pouco claro travava o fluxo. A leitura de processo nasceu daí.",
+    text: "Na Prefeitura de Taubaté, o trabalho cotidiano envolvia ordens de pagamento, contratos, retenções fiscais, despesas de concessionárias, adiantamentos e a conferência de processos de liquidação e pagamento. Era o lugar em que uma informação errada ou um encaminhamento pouco claro travava o fluxo. A leitura de processo nasceu daí.",
   },
   {
     period: "2023 — 2025",
@@ -65,9 +65,14 @@ export const experience = [
     text: "A graduação em Desenvolvimento Back-End correu em paralelo a essa rotina. Entre abril e julho de 2025 houve um intervalo já encerrado na VisionTaubaté, como desenvolvedor full stack júnior, em manutenção de sistemas, APIs e alinhamento com a equipe. O código passou a ser uma forma de responder ao que eu já via do lado da operação.",
   },
   {
-    period: "Desde julho de 2025",
-    title: "Tecnologia na gestão pública",
-    text: "A atuação está na Divisão de Tecnologia da Informação da Prefeitura de Taubaté. O repertório administrativo permanece, agora aplicado a sistemas usados por servidores, a rotinas que precisam de histórico e a informações que precisam ser encontradas.",
+    period: "Julho de 2025 — 12 de agosto de 2026",
+    title: "Sistemas institucionais",
+    text: "Na Prefeitura de Taubaté, o trabalho foi compreender necessidades, entender processos e organizar informações para desenvolver sistemas que apoiassem rotinas administrativas.",
+  },
+  {
+    period: "Desde 13 de agosto de 2026",
+    title: "Nova etapa profissional",
+    text: "Esta etapa acontece num ambiente ligado à Secretaria da Fazenda, perto de administração, informação, finanças, planejamento, dados e gestão pública. O repertório se aproxima desses temas, sem uma função de gestão ou de direção.",
   },
 ] as const;
 

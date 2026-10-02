@@ -20,6 +20,14 @@ export type Mention = {
   href: string;
 };
 
+export const featuredSlugs = [
+  "eproc",
+  "gestao-de-eventos",
+  "ta-na-mao-menu",
+  "monaco-automoveis",
+  "meu-prato-scan",
+] as const;
+
 export const cases: WorkCase[] = [
   {
     slug: "eproc",
@@ -134,7 +142,26 @@ export const cases: WorkCase[] = [
     image: "/images/bairros-vivos.jpeg",
     imageAlt: "Painel público do Observatório Bairros Vivos, com indicadores de atendimento.",
   },
+  {
+    slug: "meu-prato-scan",
+    title: "Meu Prato Scan",
+    problem:
+      "Estudo de integração: a foto de um alimento segue para uma API e volta como estimativa de calorias.",
+    lead: "A resposta volta como estimativa de calorias.",
+    context: "",
+    role: "",
+    solution: "",
+    outcome: "",
+    technologies: [],
+    href: "https://meupratoscan.vercel.app",
+    linkLabel: "Ver o projeto",
+  },
 ];
+
+export const featuredCases = featuredSlugs.flatMap((slug) => {
+  const item = cases.find((entry) => entry.slug === slug);
+  return item ? [item] : [];
+});
 
 export const mentions: Mention[] = [
   {
@@ -183,10 +210,16 @@ export const mentions: Mention[] = [
     href: "https://processo-facil.vercel.app/",
   },
   {
-    title: "Meu Prato Scan",
+    title: "Menu de Módulos",
     description:
-      "Estudo de integração: a foto de um alimento segue para uma API e volta como estimativa de calorias.",
-    href: "https://meupratoscan.vercel.app",
+      "Um sistema para organizar os valores que a Contabilidade e a Tesouraria precisam lançar e pagar.",
+    href: "https://menu-modulos.vercel.app/",
+  },
+  {
+    title: "Observatório Bairros Vivos",
+    description:
+      "Um observatório para ver os bairros e registrar o que a população procura em cada evento.",
+    href: "https://bairrosvivos.taubate.sp.gov.br/",
   },
 ];
 

@@ -92,8 +92,9 @@ export default async function CasePage({ params }: CasePageProps) {
               </div>
             </div>
           ) : null}
+          {blocks.some((block) => block.text) ? (
           <dl className="mt-14 max-w-2xl">
-            {blocks.map((block) => (
+            {blocks.filter((block) => block.text).map((block) => (
               <div key={block.label} className="border-t border-line py-8">
                 <dt className="text-[0.7rem] uppercase tracking-[0.18em] text-signal">
                   {block.label}
@@ -104,6 +105,7 @@ export default async function CasePage({ params }: CasePageProps) {
               </div>
             ))}
           </dl>
+          ) : null}
           {work.technologies.length > 0 ? (
             <p className="mt-2 max-w-2xl border-t border-line pt-8 text-sm leading-relaxed text-mute">
               <span className="uppercase tracking-[0.16em]">Tecnologias</span>
