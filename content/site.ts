@@ -11,7 +11,7 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "/#quem-sou", label: "Trajetória" },
+  { href: "/#trajetoria", label: "Trajetória" },
   { href: "/#projetos", label: "Projetos" },
   { href: "/#contato", label: "Contato" },
 ] as const;
@@ -19,8 +19,6 @@ export const nav = [
 export const about = {
   paragraphs: [
     "Passei boa parte da vida profissional dentro da administração pública, perto de processo, prazo, conferência e responsabilidade. Esse tempo ensinou a ler uma demanda antes de traduzi-la: o que está em jogo, quem participa, qual informação importa e onde o fluxo costuma falhar.",
-    "A formação em desenvolvimento veio em paralelo a essa rotina. O software deixou de ser um assunto distante e passou a ser o meio de organizar aquilo que eu já via acontecer no papel, na planilha e no encaminhamento entre setores.",
-    "Hoje o trabalho está nessa interseção. Sistemas, dados e tecnologia continuam no centro. O desenvolvimento de software segue como competência, aplicado a soluções que precisam conversar com quem opera, analisa e decide.",
   ],
 } as const;
 
@@ -69,18 +67,13 @@ export const experience = [
   {
     period: "Desde julho de 2025",
     title: "Tecnologia na gestão pública",
-    text: "A atuação está na Divisão de Tecnologia da Informação da Prefeitura de Taubaté. O repertório administrativo permanece, agora aplicado a sistemas usados por servidores, a rotinas que precisam de histórico e a informações que precisam ser encontradas. Os estudos em gestão pública, engenharia de dados e planejamento orçamentário entram como repertório adicional a essa prática.",
+    text: "A atuação está na Divisão de Tecnologia da Informação da Prefeitura de Taubaté. O repertório administrativo permanece, agora aplicado a sistemas usados por servidores, a rotinas que precisam de histórico e a informações que precisam ser encontradas.",
   },
 ] as const;
 
 export const thinking = {
   quote: "Tecnologia não começa no código.",
   flow: ["Problema", "Processo", "Informação", "Análise", "Sistema", "Melhoria"],
-  paragraphs: [
-    "Antes de desenvolver uma solução, é preciso compreender o problema.",
-    "Antes do problema, existe um processo. Antes do processo, existem pessoas, regras, informações e decisões.",
-    "O trabalho acontece nessa interseção. A tecnologia entra quando o problema já tem contorno — e serve para organizar, registrar e melhorar o que as pessoas precisam fazer.",
-  ],
 } as const;
 
 export const education = [

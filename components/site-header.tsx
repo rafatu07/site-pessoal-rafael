@@ -40,7 +40,7 @@ export function SiteHeader() {
           aria-label="Seções"
           className="border-t border-line md:hidden"
         >
-          <div className="mx-auto flex w-full max-w-[70rem] flex-col px-5 py-2">
+          <div className="mx-auto flex w-full max-w-[80rem] flex-col px-5 py-2">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -60,7 +60,7 @@ export function SiteHeader() {
 
 function ContainerBar({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex w-full max-w-[70rem] items-center justify-between px-5 py-3 md:px-8">
+    <div className="mx-auto flex w-full max-w-[80rem] items-center justify-between px-5 py-3 md:px-8">
       {children}
     </div>
   );
